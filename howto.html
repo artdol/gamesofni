@@ -138,37 +138,45 @@
 
                     
 
-                    <h2 class="section-heading">Deciding on a movie</h2>
+                    <h2 class="section-heading">Deciding on Food</h2>
 
-                    <p>Four friends <span style="color:blue">A</span>lice, <span style="color:blue">B</span>ob, <span style="color:blue">C</span>arol and <span style="color:blue">D</span>avid are going together to a cinema. There are four movies tonight and they will have to pick one. </p>
+                    <p>You and some of your team-mates are going together to lunch. There are three options to chose from: <span style="color:red">Chinese</span>, <span style="color:red">Indian</span> and <span style="color:red">Italian</span> places. All four of you have different preferences and come to lunch often.</p>
 
-                    <p><span style="color:red">One Flew Over the Cuckoo's Nest </span></p>
+                    <p>First, you install the Games of Ni for you team (Find the button to do it above).</p>
 
-                    <p><span style="color:red">2001: A Space Odyssey </span></p>
+                    <img class="img-responsive" src="img/scrcast1.gif" align="middle" alt="" style="width:500px; display: block; margin-left: auto; margin-right: auto">
+                    
+                    <span class="caption text-muted">Hit 'Add to slack' button to install Games of Ni.</span>
 
-                    <p><span style="color:red">Third man</span></p>
+                    <p>Next set up your timezone with <span style="background-color:#AAFFFF">/set_timezone</span> command. The command takes one argument and "utc-4", "utc+3" are examples of valid format.</p>
 
-                    <p><span style="color:red">Fantastic Four</span></p>
+                    <img class="img-responsive" src="img/scrcast3.gif" align="middle" alt="" style=" display: block; margin-left: auto; margin-right: auto">
 
-                    <p>Alice suggests casting a vote. The vote shows that every one of the group picked his own movie, so it is still not clear what to pick. </p>
+                    <span class="caption text-muted">Set timezone before you can create games and bid.</span>   
 
-                    <p>What can they do to resolve the stalemate?</p>
+                    <p>Now you can set up a new game for deciding on where to go for lunch today. To do this invoke <span style="background-color:#AAFFFF">/create_game</span> command and specify end time by which the decision needs to be made and options that are available (you can create a game without options too, and the winner will be the one who picks the place). Option names should be one word each - everything delimeted by a space will be considered a separate option.
 
-                    <p>This is where the tool comes in. There is one good to be traded here - designated ability to pick a movie for the group. The extent to which people desire this varies. Alice is dying to see the new movie. Bob is fine with watching anything as long as Alice is there. Carol is too busy trying to snitch the private PGP keys from Alice and Bob's laptops to care. David is fine with everything that does not have spiders in it.</p>
+                    <img class="img-responsive" src="img/scrcast2.gif" align="middle" alt="" style=" display: block; margin-left: auto; margin-right: auto">
 
-                    <p>Every one from the group submits their sealed bids. These bids are the *highest* sum they are willing to pay to be the one who dictates the movie to the group. Whoever submitted the highest bid gets to pick the movie.</p>
+                    <span class="caption text-muted">First create a new game and make a first bid.</span>   
+
+                    <p>Once the game is created eveyone can make bids for their preferred options. You can make your first bid through <span style="background-color:#AAFFFF">/bid</span> command. Every consecutive bid made by you in this game will overwrite the previous bid.</p>
+
+                    <p>The mechanism used to resolve a game of Ni is a second-price auction. The beauty of the second-price auction is that nobody has an incentive to bid anything other than his true value. The highest bid wins, but only pays the second-highest bid as a price. This way the winner is always the one who desires something the most, but everyone else is rightfully compensated. The bids are also sealed and nobody (except for an impartial slack bot) can see other people's valuations. </p>
+
+                    <p>Current games open to bidding can be requested with <span style="background-color:#AAFFFF">/games</span> command</p>
+
+                    <img class="img-responsive" src="img/scrcast4.gif" align="middle" alt="" style=" display: block; margin-left: auto; margin-right: auto">
+
+                    <span class="caption text-muted">Use /games command to find open games.</span>   
+
+                    <p>At due time the game will be over, and the bot will stop accepting bids for it. The bot will then announce finished game in the channel that you set up for games of ni in the beginning. </p>
+
+                    <img class="img-responsive" src="img/finished.png" align="middle" alt="" style=" display: block; margin-left: auto; margin-right: auto">
+
+                    <span class="caption text-muted">Results are posted once game is over.</span>  
 
                     <p>The trick is that this person will have to pay the second highest bid in the group as a reimbursment for imposing his will on everyone.</p>
-
-                    <p>After the bidding is over, Alice wins with the second highest bid being 20$. </p>
-
-                    <p>This sum exactly covers the popcorn and coke for everybody. The decision has been made and everyone walks out of the auction (and into the theatre) happily - Alice payed less than her bid, everyone else got free popcorn and coke. Notice how everybody's true bids remain a secret in so far as Alice had won.</p>
-
-                    <h2 class="section-heading">Complication</h2>
-
-                    <p>What if David wanted to go to the same movie as Bob? He does not want to pay for the popcorn, but neither does he want to go to a movie Carol or Alice would pick. He now has to think carefully, trying to guess if Bob would bid a high amount. This is the exact kind of complication we are trying to avoid.</p>
-
-                    <p>Luckily we have the mechanism for this kind of problem. Instead of voting for a single item of "being able to pick a movie", the group creates separate options for each movie. Now they can bid truthfully. The trick here is different - whoever wins the auction made everyone else slightly worse off, by his very presence. If he was not there, someone else might have won. The auction is smart enough to produce the exact sum to compensate this "would be winner" person.
 
                     <h2 class="section-heading">Privacy policy</h2>
 
@@ -192,17 +200,12 @@
                     <p>The more accurately can we capture your preferences, the ever-wider will be the scope of Games of Ni. </p>
 
 
-                    <img class="img-responsive" src="img/scrcast2.gif" align="middle" alt="" style=" display: block; margin-left: auto; margin-right: auto">
 
-                    <span class="caption text-muted">First create a new game and make a first bid.</span>   
-
-                    Option names should be one word each - everything delimeted by a space will be considered a separate option.
 
                     
-                    <img class="img-responsive" src="img/scrcast1.gif" align="middle" alt="" style="width:500px; display: block; margin-left: auto; margin-right: auto">
+
                     
                     
-                    <span class="caption text-muted">Hit 'Add to slack' button to install Games of Ni.</span>
 
                 </div>
             </div>
