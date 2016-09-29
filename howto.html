@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Games of Ni - second price auction for slack</title>
+
+    <!-- Meta -->
+    <meta name="description" content="A free toolset to make rational group decisions">
+    <meta name="keywords" content="second price auction, decision making">
+    <!--<link rel="author" href="https://plus.google.com/{{googlePlusId}}" />
+    <link rel="canonical" href="{{pageUrl}}" />-->
+
+    <!-- ****** faviconit.com favicons ****** -->
+    <link rel="shortcut icon" href="favicon/favicon.ico">
+    <link rel="icon" sizes="16x16 32x32 64x64" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="196x196" href="favicon/favicon-192.png">
+    <link rel="icon" type="image/png" sizes="160x160" href="favicon/favicon-160.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="favicon/favicon-64.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16.png">
+    <link rel="apple-touch-icon" href="favicon/favicon-57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="favicon/favicon-114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="favicon/favicon-72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="favicon/favicon-144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="favicon/favicon-60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="favicon/favicon-120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="favicon/favicon-76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="favicon/favicon-152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/favicon-180.png">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta name="msapplication-TileImage" content="favicon/favicon-144.png">
+    <meta name="msapplication-config" content="favicon/browserconfig.xml">
+    <!-- ****** faviconit.com favicons ****** -->
+
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="css/clean-blog.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="index.html"></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                    <a href="https://slack.com/oauth/authorize?scope=incoming-webhook,commands,team:read&client_id=61111185110.83726084374"><img alt="Add to Slack" height="40" width="139" src="https://platform.slack-edge.com/img/add_to_slack.png" srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" /></a>
+                    </li>
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="howto.html">How to use</a>
+                    </li>
+                    <li>
+                        <a href="economics.html">Economics behind it</a>
+                    </li>
+                    <li>
+                        <a href="contact.html">Contact</a>
+                    </li>
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url('img/argument.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>How to use Games of Ni</h1>
+                        <h2 class="subheading">Make decisions better, faster.</h2>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+                    <p>Deciding on thigs is hard. Deciding on things together is harder. </p>
+
+                    <blockquote style="text-align:right"><span style="font-weight: bolder">Divide house cleaning chores with your roommates. </span><p style="padding: 0; margin:0">Everyone can avoid the chores they hate.</p></blockquote>
+
+                    <blockquote><span style="font-weight: bolder">Compromise as a household or with close friends, so that all get what they want. </span><p style="padding: 0; margin:0">Keep track on promises and "i owe you one"s. </p></blockquote>
+
+                    <blockquote style="text-align:right"><span style="font-weight: bolder">Negotiate prices for artistic commisions. </span><p style="padding: 0; margin:0">Everyone submits their prices in secret. No misunderstandings, no overthinking.  </p></blockquote>
+
+                    <blockquote><span style="font-weight: bolder">Make group decisions on movies and food with your team. </span><p style="padding: 0; margin:0">A fair choice each time. </p></blockquote>
+
+                    <blockquote style="text-align:right"><span style="font-weight: bolder">Overly complex managerial decisions. </span><p style="padding: 0; margin:0">The bot will decide what is the absolute best </p><p style="padding: 0; margin:0">(and even help compensate everyone who was looking for something different) </p></blockquote>
+
+                    <p>Dividing chores, deciding on food and movies, voting, managing, - any group decisions. No strategies, no overthinking, no haggling, no arguments. </p>
+
+                    
+
+                    <h2 class="section-heading">Deciding on a movie</h2>
+
+                    <p>Four friends <span style="color:blue">A</span>lice, <span style="color:blue">B</span>ob, <span style="color:blue">C</span>arol and <span style="color:blue">D</span>avid are going together to a cinema. There are four movies tonight and they will have to pick one. </p>
+
+                    <p><span style="color:red">One Flew Over the Cuckoo's Nest </span></p>
+
+                    <p><span style="color:red">2001: A Space Odyssey </span></p>
+
+                    <p><span style="color:red">Third man</span></p>
+
+                    <p><span style="color:red">Fantastic Four</span></p>
+
+                    <p>Alice suggests casting a vote. The vote shows that every one of the group picked his own movie, so it is still not clear what to pick. </p>
+
+                    <p>What can they do to resolve the stalemate?</p>
+
+                    <p>This is where the tool comes in. There is one good to be traded here - designated ability to pick a movie for the group. The extent to which people desire this varies. Alice is dying to see the new movie. Bob is fine with watching anything as long as Alice is there. Carol is too busy trying to snitch the private PGP keys from Alice and Bob's laptops to care. David is fine with everything that does not have spiders in it.</p>
+
+                    <p>Every one from the group submits their sealed bids. These bids are the *highest* sum they are willing to pay to be the one who dictates the movie to the group. Whoever submitted the highest bid gets to pick the movie.</p>
+
+                    <p>The trick is that this person will have to pay the second highest bid in the group as a reimbursment for imposing his will on everyone.</p>
+
+                    <p>After the bidding is over, Alice wins with the second highest bid being 20$. </p>
+
+                    <p>This sum exactly covers the popcorn and coke for everybody. The decision has been made and everyone walks out of the auction (and into the theatre) happily - Alice payed less than her bid, everyone else got free popcorn and coke. Notice how everybody's true bids remain a secret in so far as Alice had won.</p>
+
+                    <h2 class="section-heading">Complication</h2>
+
+                    <p>What if David wanted to go to the same movie as Bob? He does not want to pay for the popcorn, but neither does he want to go to a movie Carol or Alice would pick. He now has to think carefully, trying to guess if Bob would bid a high amount. This is the exact kind of complication we are trying to avoid.</p>
+
+                    <p>Luckily we have the mechanism for this kind of problem. Instead of voting for a single item of "being able to pick a movie", the group creates separate options for each movie. Now they can bid truthfully. The trick here is different - whoever wins the auction made everyone else slightly worse off, by his very presence. If he was not there, someone else might have won. The auction is smart enough to produce the exact sum to compensate this "would be winner" person.
+
+                    <h2 class="section-heading">Privacy policy</h2>
+
+                    <p>By adding the app you only give the bot permission to access information about your team. We do not have the permission or intend to access any other data. </p>
+                    <p>We do not sent out any emails or share your email with any third parties. We may invite you to subscribe to our newsletter in the future and you will always have the ability to opt out.</p>
+
+                    <h2 class="section-heading">Coming soon</h2>
+
+                    <p>Power of Ni is working hard to bring you these important updates first:</p>
+
+                    <ul>
+                    <li>Human-readable date time formats parsing, e.g. auction that ends "tomorrow" etc.</li>
+                    <li>Proper handling of chores and negative goods</li>
+                    <li>Budget tracking</li>
+                    </ul>
+
+                    <p>The date time parsing is coming in the first update.</p>
+
+                    <p>The Power of Ni plans to expand the Games of Ni to cover a wide variety of decisions with ready templates, incorporate combinatorial bids, public goods, efficient allocation solvers, token tracking and a lot of fresh economic ideas.</p>
+
+                    <p>The more accurately can we capture your preferences, the ever-wider will be the scope of Games of Ni. </p>
+
+
+                    <img class="img-responsive" src="img/scrcast2.gif" align="middle" alt="" style=" display: block; margin-left: auto; margin-right: auto">
+
+                    <span class="caption text-muted">First create a new game and make a first bid.</span>   
+
+                    Option names should be one word each - everything delimeted by a space will be considered a separate option.
+
+                    
+                    <img class="img-responsive" src="img/scrcast1.gif" align="middle" alt="" style="width:500px; display: block; margin-left: auto; margin-right: auto">
+                    
+                    
+                    <span class="caption text-muted">Hit 'Add to slack' button to install Games of Ni.</span>
+
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <!--
+                    <ul class="list-inline text-center">
+                        <li>
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    -->
+                    <p class="copyright text-muted"> <img  src="img/kitsune.png" style="width:20px" alt=""><img  src="img/nek.png" style="width:20px" alt=""> &copy; Power of Ni 2016</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="js/clean-blog.min.js"></script>
+
+</body>
+
+</html>
