@@ -80,7 +80,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                    <a href="https://slack.com/oauth/authorize?scope=incoming-webhook,commands,team:read&client_id=61111185110.83726084374"><img alt="Add to Slack" height="40" width="139" src="https://platform.slack-edge.com/img/add_to_slack.png" srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" /></a>
+                    <a href="https://slack.com/oauth/authorize?scope=incoming-webhook,commands&client_id=61111185110.83726084374"><img alt="Add to Slack" height="40" width="139" src="https://platform.slack-edge.com/img/add_to_slack.png" srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" /></a>
                     </li>
                     <li>
                         <a href="index.html">Home</a>
@@ -111,8 +111,10 @@
                     <div class="site-heading">
                         <h1>Hm...</h1>
                         <hr class="small">
-                        <span class="subheading"><span><p>Something went wrong. Could you, please, try again? </span>
-                                                
+                        <h2>Something went wrong. Try again, please?</h2>
+                        
+                        <span class="subheading">The magic number is <span name="magic_number" style="font-weight:bold" id="magic_number"></span></span>
+                        <span class="subheading">Help us out? Please, send a short description of what happened along with magic number to sadnessexperts@gmail.com so we could fix it.</span>
                     </div>
                 </div>
             </div>
@@ -170,6 +172,29 @@
 
     <!-- Theme JavaScript -->
     <script src="js/clean-blog.min.js"></script>
+
+    <!-- Get query parameter -->
+    <!-- Credit to weltraumpirat -->
+    <script>
+
+    function getSearchParameters() {
+      var prmstr = window.location.search.substr(1);
+      return prmstr != null && prmstr != "" ? transformToAssocArray(prmstr) : {};
+    }
+
+    function transformToAssocArray( prmstr ) {
+        var params = {};
+        var prmarr = prmstr.split("&");
+        for ( var i = 0; i < prmarr.length; i++) {
+            var tmparr = prmarr[i].split("=");
+            params[tmparr[0]] = tmparr[1];
+        }
+        return params;
+    }
+
+    var params = getSearchParameters();
+    $("#magic_number").html(params.requestId);
+    </script>
 
 </body>
 

@@ -78,7 +78,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                    <a href="https://slack.com/oauth/authorize?scope=incoming-webhook,commands,team:read&client_id=61111185110.83726084374"><img alt="Add to Slack" height="40" width="139" src="https://platform.slack-edge.com/img/add_to_slack.png" srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" /></a>
+                    <a href="https://slack.com/oauth/authorize?scope=incoming-webhook,commands&client_id=61111185110.83726084374"><img alt="Add to Slack" height="40" width="139" src="https://platform.slack-edge.com/img/add_to_slack.png" srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" /></a>
                     </li>
                     <li>
                         <a href="index.html">Home</a>
@@ -122,15 +122,15 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     
-                    <p>Deciding on thigs is hard. Deciding on things together is harder. </p>
+                    <p>Deciding on things is hard. Deciding on things together is harder. </p>
 
                     <blockquote style="text-align:right"><span style="font-weight: bolder">Divide house cleaning chores with your roommates. </span><p style="padding: 0; margin:0">Everyone can avoid the chores they hate.</p></blockquote>
 
-                    <blockquote><span style="font-weight: bolder">Compromise as a household or with close friends, so that all get what they want. </span><p style="padding: 0; margin:0">Keep track on promises and "i owe you one"s. </p></blockquote>
-
+                    <blockquote><span style="font-weight: bolder">Make group decisions on movies and food with your team. </span><p style="padding: 0; margin:0">A fair choice each time. </p></blockquote>
+                    
                     <blockquote style="text-align:right"><span style="font-weight: bolder">Negotiate prices for artistic commisions. </span><p style="padding: 0; margin:0">Everyone submits their prices in secret. No misunderstandings, no overthinking.  </p></blockquote>
 
-                    <blockquote><span style="font-weight: bolder">Make group decisions on movies and food with your team. </span><p style="padding: 0; margin:0">A fair choice each time. </p></blockquote>
+                    <blockquote><span style="font-weight: bolder">Compromise as a household or with close friends, so that all get what they want. </span><p style="padding: 0; margin:0">Keep track on promises and "i owe you one"s. </p></blockquote>
 
                     <blockquote style="text-align:right"><span style="font-weight: bolder">Overly complex managerial decisions. </span><p style="padding: 0; margin:0">The bot will decide what is the absolute best </p><p style="padding: 0; margin:0">(and even help compensate everyone who was looking for something different) </p></blockquote>
 
@@ -142,7 +142,7 @@
 
                     <p>You and some of your team-mates are going together to lunch. There are three options to chose from: <span style="color:red">Chinese</span>, <span style="color:red">Indian</span> and <span style="color:red">Italian</span> places. All four of you have different preferences and come to lunch often.</p>
 
-                    <p>First, you install the Games of Ni for you team (Find the button to do it above).</p>
+                    <p>First, you install the Games of Ni for you team. <a href="https://slack.com/oauth/authorize?scope=incoming-webhook,commands&client_id=61111185110.83726084374"><img alt="Add to Slack" height="40" width="139" src="https://platform.slack-edge.com/img/add_to_slack.png" srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" /></a></p>
 
                     <img class="img-responsive" src="img/scrcast1.gif" align="middle" alt="" style="width:500px; display: block; margin-left: auto; margin-right: auto">
                     
@@ -154,7 +154,7 @@
 
                     <span class="caption text-muted">Set timezone before you can create games and bid.</span>   
 
-                    <p>Now you can set up a new game for deciding on where to go for lunch today. To do this invoke <span style="background-color:#AAFFFF">/create_game</span> command and specify end time by which the decision needs to be made and options that are available (you can create a game without options too, and the winner will be the one who picks the place). Option names should be one word each - everything delimeted by a space will be considered a separate option.
+                    <p>Now you can set up a new game for deciding on where to go for lunch today. To do this invoke <span style="background-color:#AAFFFF">/create_game</span> command and specify name of the game, end time by which the decision needs to be made and options that are available (you can create a game without options too, and the winner will be the one who picks the place). Option names should be one word each - everything delimeted by a space will be considered a separate option.
 
                     <img class="img-responsive" src="img/scrcast2.gif" align="middle" alt="" style=" display: block; margin-left: auto; margin-right: auto">
 
@@ -162,7 +162,7 @@
 
                     <p>Once the game is created eveyone can make bids for their preferred options. You can make your first bid through <span style="background-color:#AAFFFF">/bid</span> command. Every consecutive bid made by you in this game will overwrite the previous bid.</p>
 
-                    <p>The mechanism used to resolve a game of Ni is a second-price auction. The beauty of the second-price auction is that nobody has an incentive to bid anything other than his true value. The highest bid wins, but only pays the second-highest bid as a price. This way the winner is always the one who desires something the most, but everyone else is rightfully compensated. The bids are also sealed and nobody (except for an impartial slack bot) can see other people's valuations. </p>
+                    <p>The mechanism used to resolve a game of Ni is a second-price auction. The beauty of the second-price auction is that nobody has an incentive to bid anything other than his true value. The highest bid wins, but only pays the second-highest bid as a price. This way the winner is always the one who desires something the most, but everyone else is rightfully compensated. The bids are also sealed and nobody (except for an impartial slack bot) can see other people's valuations. Why do we need values and bids? More on that <A href="#whybids">below</A>. </p>
 
                     <p>Current games open to bidding can be requested with <span style="background-color:#AAFFFF">/games</span> command</p>
 
@@ -176,12 +176,21 @@
 
                     <span class="caption text-muted">Results are posted once game is over.</span>  
 
-                    <p>The trick is that this person will have to pay the second highest bid in the group as a reimbursment for imposing his will on everyone.</p>
+                    <A NAME="whybids"></A>
+
+                    <h2 class="section-heading">Why bids</h2>
+
+                    <p>The idea of bidding a monetary value for something may seem too economical. However, we do not imply that money have to physically change hands every time. In fact, we hope for the opposite. The real money bids represent "i owe you"s. For instance, after going for Japanese lunch today, I promise to compensate you properly next time. Or, maybe, I will just pay for lunch. </p>
+
+                    <p>The trick is that the winner will have to pay the second highest bid in the group as a reimbursment for imposing his will on everyone.</p>
+
+                    <p> The only role the money play is helping bots compare valuations of arbitrary things between people, telling us how much I like Japanese cuisine more than you. Money is a common denominator, after all, this is why it is so popular. And then we know, how big of a favor I owe you next time, and if we are having your favorite then. </p>
+
+                    <p> We had written up a little more on the subject in a <a href="economics.html">separate section.</a></p>
 
                     <h2 class="section-heading">Privacy policy</h2>
 
-                    <p>By adding the app you only give the bot permission to access information about your team. We do not have the permission or intend to access any other data. </p>
-                    <p>We do not sent out any emails or share your email with any third parties. We may invite you to subscribe to our newsletter in the future and you will always have the ability to opt out.</p>
+                    <p>By adding the app you only give the bot permission to post into the selected channel. Installation will also add slash commands that may be invoked to interact with Games of Ni bot. We have no access to your private data, messages or email address. </p>
 
                     <h2 class="section-heading">Coming soon</h2>
 
